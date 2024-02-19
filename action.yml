@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Get PR body snippet'
+description: 'Get a snippet of the PR body based on a start and end regex.'
+author: 'O'Mutt (Matt@OKeefe.dev)'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,19 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
+  start-regex:
+    description: 'The start of the PR snippet'
+    required: false
+    default: '#.*?desc.*?'
+  end-regex:
+    description: 'The end of the PR snippet'
+    required: false
+    default: '#?'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  snippet:
+    description: 'The snippet of the PR body'
 
 runs:
   using: node20
